@@ -1,0 +1,63 @@
+[0;1;39mGlobal[0m
+       Protocols: -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+resolv.conf mode: stub
+     DNS Servers: 8.8.8.8
+
+[0;1;39mLink 2 (enp1s0)[0m
+Current Scopes: DNS
+     Protocols: +DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+   DNS Servers: 8.8.8.8 10.77.123.174 10.76.100.2 10.76.99.2 10.73.4.10
+    DNS Domain: amperecomputing.com pdx-lab.amperecomputing.com rtp-lab.amperecomputing.com
+                scc-lab.amperecomputing.com
+
+[0;1;39mLink 3 (enp9s0)[0m
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+[0;1;39mLink 4 (califd55b1da2d8)[0m
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+[0;1;39mLink 5 (cali5981d3cba89)[0m
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+[0;1;39mLink 6 (cali453a9664d1b)[0m
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+[0;1;39mLink 7 (calib2fb772ce1e)[0m
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+[0;1;39mLink 8 (calief1339a0ed0)[0m
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+[0;1;39mLink 9 (calia28083f40dd)[0m
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+[0;1;39mLink 13 (cali25c51866441)[0m
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+[0;1;39mLink 17 (vxlan.calico)[0m
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+[0;1;39mLink 22 (calie034ddb8d7b)[0m
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+[0;1;39mLink 27 (cali6027e7e08da)[0m
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+[0;1;39mLink 50 (cali400e3ade7fc)[0m
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+
+[0;1;39mLink 122 (cali5ae2b70dc23)[0m
+Current Scopes: none
+     Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported

@@ -15,7 +15,7 @@ spec:
       name: miniocredentials
   containers:
   - name: vpp-app-{UUID}
-    image: docker.io/mrdojojo/video-processor-ffmpeg:1.3
+    image: docker.io/mrdojojo/video-processor-ffmpeg:1.2
     env:
     - name: ENDPOINT_URL
       value: "http://{endpoint}/"
@@ -31,9 +31,9 @@ spec:
       value: "{DST_BUCKET}"
     resources:
       limits:
-        cpu: "80"
+        cpu: "30"
       requests:
-        cpu: "15"
+        cpu: "10"
     volumeMounts:
     - name: credentials
       readOnly: true
