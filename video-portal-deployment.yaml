@@ -15,68 +15,73 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: video-poral
+  name: video-portal
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: video-poral
+      app: video-portal
   template:
     metadata:
       labels:
-        app: video-poral
+        app: video-portal
     spec:
       containers:
-      - name: video-poral
-        image: docker.io/mrdojojo/video-portal:v0.9.1
+      - name: video-portal
+        image: docker.io/gulianglily/video-portal:0.9.2
         command: ["/bin/sh", "-c"]
         args:
-        - "ls -al && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+        - "ls -al && sleep 5 && python3 manage.py makemigrations videoplayer  && sleep 10 && python3 manage.py migrate && sleep 10 && python3 manage.py runserver 0.0.0.0:8000"
         ports:
         - containerPort: 8000
         volumeMounts:
         - name: code-volume
           mountPath: /media
         - name: kubeconfig
-          mountPath: /root/.kube/config
-          subPath: config
+          mountPath: /root/.kube/
           readOnly: true
         env:
           - name: MINIO_ENDPOINT
-            value: "console.minio.microk8s.hhii.ampere"
+            value: "minio.microk8s.hhii.ampere"
           - name: MINIO_ACCESS_KEY
-            value: "[ACCESS-KEY]"
+            value: "xxxxxx"
           - name: MINIO_SECRET_KEY
-            value: "[SECRET-key]"
+            value: "xxxxxx"
           - name: MINIO_BUCKET_NAME
             value: "vpp-dst"
           - name: MINIO_SRC_BUCKET_NAME
             value: "vpp-src"
           - name: MINIO_DST_BUCKET_NAME
             value: "vpp-dst"
-          - name: VOD_URL
-            value: "[URL]"
           - name: DJANGO_ALLOWED_HOSTS
-            value: "[hostname],[Host IP Address],127.0.0.1"
+            value: "demo.mk8s.hhii.ampere,xxxxxx,127.0.0.1,0.0.0.0"
           - name: DB_NAME
             value: "postgres"
           - name: DB_USER
-            value: "psql"
+            value: "postgres"
           - name: DB_PASSWORD
-            value: "password"
+            value: "xxxxx"
           - name: DB_HOST
-            value: "[Cluster IP]"
+            value: "xxx"
           - name: DB_PORT
-            value: "5432"
+            value: "3xxx"
+          - name: VIDEO_PROCESS_NAMESPACE
+            value: "process-ns"
+          - name: VOD_POC_NAMESPACE
+            value: "vod-poc"
+          - name: CPU_LIMITS
+            value: "80"
+          - name: CPU_REQUESTS
+            value: "30"
 
       volumes:
         - name: code-volume
           persistentVolumeClaim:
-            claimName: video-portal-app-pv-claim
+            claimName: video-portal-pv-claim
         - name: kubeconfig
           configMap:
             defaultMode: 420
-            name: kubeconfig-file
+            name: kubeconfig-file-configmap
 ---
 apiVersion: v1
 kind: Service
@@ -93,19 +98,19 @@ spec:
       targetPort: 8000
       
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: video-poral-ingress
-spec:
-  rules:
-  - host: demo.mk8snode4.hhii.ampere
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: video-poral-service
-            port:
-              number: 8000
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: video-potral-ingress
+#spec:
+#  rules:
+#  - host: demo.mk8snode4.hhii.ampere
+#    http:
+#      paths:
+#      - path: /
+#        pathType: Prefix
+#        backend:
+#          service:
+#            name: video-portal-service
+#            port:
+#              number: 8000
